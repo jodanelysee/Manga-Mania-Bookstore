@@ -42,7 +42,7 @@ const {_id, title, image_url, author, genre, book_description, price} = useLoade
           alert("Book added to cart");
         } catch (error) {
           console.error('Error:', error.message);
-          alert('Failed to add book to cart.');
+          alert('Book already exists in a cart.');
         }
       };
       

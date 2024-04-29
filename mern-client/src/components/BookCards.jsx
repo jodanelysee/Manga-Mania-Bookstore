@@ -42,7 +42,6 @@ const BookCards = ({headline, books}) => {
       >
         {
             books.map(book => <SwiperSlide key={book._id}>
-                <Link to={`/book/${book._id}`}>
                     <div className='relative'>
                         <img src={book.image_url} alt="" />
                     </div>
@@ -55,7 +54,6 @@ const BookCards = ({headline, books}) => {
                         <p>${book.price}</p>
                     </div>
                     </div>
-                </Link>
             </SwiperSlide>)
         }
       </Swiper>

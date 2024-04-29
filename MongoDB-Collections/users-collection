@@ -1,0 +1,13 @@
+{"_id":{"$oid":"65f91210080f3c63a45ec128"},"first_name":"Jodan","last_name":"Elysee","email":"jodanelysee@gmail.com","password":"06012003","address":"84 Pinewood Ave, West Long Branch, NJ, 07764"}
+{"_id":{"$oid":"66018e3145c313ee40c49e54"},"first_name":"John","last_name":"Doe","email":"johndoe@gmail.com","password":"password","address":"431 Cedar Ave, West Long Branch, NJ, 07764"}
+{"_id":{"$oid":"660193a945c313ee40c49e55"},"first_name":"LeBron","last_name":"James","email":"lebronjames@gmail.com","password":"bronny","address":"123 Lakers Ave, Los Angeles, CA, 900001"}
+{"_id":{"$oid":"6601ee8afc938aec17f4fbeb"},"first_name":"Aeneas","last_name":"Robinson","email":"nenerob@gmail.com","password":"letsgoeagles","address":"123 eagles ave, Irvington, NJ, 07111"}
+{"_id":{"$oid":"6602396eae23a19864c5a710"},"first_name":"Justin ","last_name":"Sanders","email":"justinsanders512003@gmail.com ","password":"BUSTER12$","address":"431 Cedar Avenue"}
+{"_id":{"$oid":"6602fa9e933c12a8d12bb3e5"},"first_name":"Greg","last_name":"Dort","email":"gdort@gmail.com","password":"gdiddy","address":"123 Gregorian Ave, East Orange, NJ, 07017"}
+{"_id":{"$oid":"66041a4dc1b3f98f9a194020"},"first_name":"test","last_name":"user","email":"testuser@gmail.com","password":"testuser","address":"84 Pinewood Ave, West Long Branch, NJ, 07764"}
+{"_id":{"$oid":"660b72d63e906be04caed1d4"},"first_name":"Jeremiah","last_name":"Dixon","email":"jerdixon04@gmail.com","password":"StephCurry30","address":"112 Rollinson Street, West Orange, NJ, 07052"}
+{"_id":{"$oid":"6625aa5f06097b3ade4f8fce"},"first_name":"Cam","last_name":"Chase","email":"camchase@gmail.com","password":"camchase","address":"123 Main St, West Long Branch, NJ, 07764"}
+{"_id":{"$oid":"662d7cf9005314fe44699131"},"first_name":"Jean","last_name":"Baptise","email":"jeanbaptise@gmail.com","password":"haiti","address":"79 Sleepy Hollow Ave. Absecon, NJ 08205"}
+{"_id":{"$oid":"662d860792b4642352797aac"},"first_name":"Sergio ","last_name":"Kitchens","email":"gunna@gmail.com","password":"gunna","address":"86 Bay Drive Peachtree City, GA 30269"}
+{"_id":{"$oid":"662ea4c5d016e61f9431d61a"},"first_name":"Elijah ","last_name":"Menard","email":"elijahmenard@gmail.com","password":"Jonathan1","address":"958 Rosemont Ave Union NJ 07083 "}
+{"_id":{"$oid":"662ee42b5cda0032b3243a32"},"first_name":"Jenn ","last_name":"Grullon","email":"jenng@gmail.com","password":"Barbie","address":"95 Squaw Creek Rd. Halethorpe, MD 21227"}

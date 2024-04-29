@@ -1,0 +1,13 @@
+{"_id":{"$oid":"6625aaaa06097b3ade4f8fd0"},"user":{"$oid":"6625aaaa06097b3ade4f8fcf"},"books":[]}
+{"_id":{"$oid":"6626e08eab5255501a45d1a9"},"books":[],"user":{"$oid":"660b72d63e906be04caed1d4"}}
+{"_id":{"$oid":"6626e0d6ab5255501a45d1aa"},"books":[],"user":{"$oid":"66041a4dc1b3f98f9a194020"}}
+{"_id":{"$oid":"6626e109ab5255501a45d1ab"},"books":[],"user":{"$oid":"6602fa9e933c12a8d12bb3e5"}}
+{"_id":{"$oid":"6626e125ab5255501a45d1ac"},"books":[],"user":{"$oid":"6602396eae23a19864c5a710"}}
+{"_id":{"$oid":"6626e152ab5255501a45d1ad"},"books":[],"user":{"$oid":"6601ee8afc938aec17f4fbeb"}}
+{"_id":{"$oid":"6626e177ab5255501a45d1ae"},"books":[],"user":{"$oid":"660193a945c313ee40c49e55"}}
+{"_id":{"$oid":"6626e199ab5255501a45d1af"},"books":[],"user":{"$oid":"66018e3145c313ee40c49e54"}}
+{"_id":{"$oid":"6626e1bdab5255501a45d1b0"},"books":[],"user":{"$oid":"65f91210080f3c63a45ec128"}}
+{"_id":{"$oid":"662d85204ee481e250f3f2a1"},"books":[],"user":{"$oid":"662d7cf9005314fe44699131"}}
+{"_id":{"$oid":"662d860792b4642352797aad"},"books":[],"user":{"$oid":"662d860792b4642352797aac"}}
+{"_id":{"$oid":"662ea4c5d016e61f9431d61b"},"books":[],"user":{"$oid":"662ea4c5d016e61f9431d61a"}}
+{"_id":{"$oid":"662ee42b5cda0032b3243a33"},"books":[],"user":{"$oid":"662ee42b5cda0032b3243a32"}}

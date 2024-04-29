@@ -10,7 +10,6 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         const address = form.address.value;
-        const credit_cards = [];
         console.log(first_name);
         console.log(last_name);
         console.log(email);
@@ -23,7 +22,6 @@ const Signup = () => {
             email: email,
             password: password,
             address: address,
-            credit_cards: credit_cards,
         };
 
         console.log(userObj);

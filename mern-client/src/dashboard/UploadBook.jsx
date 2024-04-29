@@ -16,6 +16,7 @@ const UploadBook = () => {
     // handle book submission
     const handleBookSubmit = (event) => {
         const userID = localStorage.getItem("userID")
+        const purchased = false
         event.preventDefault();
         const form = event.target;
         const title = form.title.value;
@@ -37,7 +38,8 @@ const UploadBook = () => {
             genre: genre,
             book_description: book_description,
             price: parseFloat(price),
-            user: userID
+            user: userID,
+            purchased: purchased
         }
 
         console.log(bookObj)

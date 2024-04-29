@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 const cors = require('cors')
-const mongoose = require('mongoose');
 
 
 //middleware
@@ -132,13 +131,6 @@ app.get("/user/:userId/credit-cards", async (req, res) => {
           throw new Error("Failed to insert card");
         }
         console.log(result.insertedId);
-        const updateUser = await userCollections.updateOne(
-          { _id: new ObjectId(req.params.id) },
-          { $push: { credit_cards: result.insertedId } }
-        );
-        if (updateUser.modifiedCount !== 1) {
-          throw new Error("Failed to update user");
-        }
         res.send(result);
       } catch (error) {
         console.error("Error adding card to user:", error);
@@ -151,22 +143,16 @@ app.get("/user/:userId/credit-cards", async (req, res) => {
       const bookId = req.params.bookId;
     
       try {
-        console.log(userId + " wagwan soup")
         // Find the user's cart
         const existingCart = await cartCollections.findOne({ user: new ObjectId(userId) });
         if (!existingCart) {
           return res.status(404).send("User's cart not found.");
         }
-        console.log(bookId + " Jodan")
         // Check if bookId exists in the user's cart document field 
-        console.log(existingCart.books + " yo")
         const bookExistsInCart = existingCart.books.map(String).includes(bookId);
         if (!bookExistsInCart) {
           return res.status(404).send({error:"Book not found in the user's cart."});
         }
-    
-        // Remove the book ID from the array
-        console.log(userId + "ross")
         // Update the cart in the database
         const updatedCart = await cartCollections.updateOne(
           { user: new ObjectId(userId) },
@@ -181,62 +167,31 @@ app.get("/user/:userId/credit-cards", async (req, res) => {
       }
     });
 
-    app.post("/place-order", async (req, res) => {
-      const data = req.body;
-      const userId = data.userId; // Assuming userId is included in the request body
-    
+    app.patch("/delete-cart/:userId", async (req, res) => {
+      const userId = req.params.userId;
       try {
-        // Fetch user's cart
-        const userCart = await cartCollections.findOne({ user: new ObjectId(userId) });
-        if (!userCart) {
-          return res.status(404).send({error: "User's cart not found."});
+        const existingCart = await cartCollections.findOne({user: new ObjectId(userId) });
+        if (!existingCart) {
+          return res.status(404).send("User's cart not found")
         }
-    
-        // Get book details for items in the cart
-        const booksDetails = await Promise.all(userCart.books.map(bookId =>
-          fetch(`http://localhost:3000/book/${bookId}`)
-            .then(res => res.json())
-        ));
-    
-        // Calculate total price based on fetched book details
-        const totalPrice = booksDetails.reduce((acc, book) => acc + book.price, 0);
-    
-        // Create the order document
-        const order = {
-          items: booksDetails.map(book => book.title), // Array of book titles
-          price: totalPrice,
-          shipping_address: data.shipping_address, // Assuming shipping_address is sent in the request body
-          card_used: data.card_used, // Assuming card_used is sent in the request body
-          user: new ObjectId(userId)
-        };
-    
-        // Insert the order document into the OrderInventory collection
-        const result = await orderCollections.insertOne(order);
-        if (!result.insertedId) {
-          throw new Error("Failed to insert order.");
-        }
-    
-        // Remove books from the user's cart
-        const updatedCart = await cartCollections.updateOne(
-          { user: new ObjectId(userId) },
-          { $set: { books: [] } } // Empty the books array
-        );
-        if (updatedCart.modifiedCount !== 1) {
-          throw new Error("Failed to update cart.");
-        }
-    
-        // Delete books from the entire database (booksCollection)
-        const deletedBooks = await Promise.all(userCart.books.map(bookId =>
-          fetch(`http://localhost:3000/book/${bookId}`, {
-            method: 'DELETE'
-          })
-        ));
-    
-        // Return the order ID or success message
-        res.send({ orderId: result.insertedId, message: "Order placed successfully." });
+        const updateCart = await cartCollections.updateOne({user: new ObjectId(userId)}, {$set: {books: []}})
       } catch (error) {
-        console.error("Error placing order:", error.message);
-        res.status(500).send("Failed to place order.");
+        console.error("Error:", error.message)
+        return res.status(500).send("Failed clear cart")
+      }
+    })
+
+    app.post("/place-order", async (req, res) => {
+      try {
+        const data = req.body;
+        data.user = new ObjectId(data.user);
+        data.card = new ObjectId(data.card)
+        const result = await orderCollections.insertOne(data);
+        console.log(result.insertedId)
+        res.send(result)
+      } catch (error) {
+        console.error(error + "Error adding order to user")
+        res.status(500).send({ error: "failed to add order to user"})
       }
     });
     
